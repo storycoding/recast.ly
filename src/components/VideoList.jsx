@@ -8,6 +8,9 @@ var VideoList = () => {
       <div><h5><em>videoListEntry</em> view goes here</h5></div>
     </div>
   );
+
+  //some method to render ()
+
 };
 
 //create the render method
