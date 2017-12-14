@@ -5,12 +5,10 @@ class VideoList extends React.Component {
   }
 
   render (props) {
-    
-    console.log('this = ' + this);
 
     for (var i = 1; i <= 3; i++) {
-      let listItem = this.props.videoArray[i];
-      this['video' + i] = (<VideoListEntry videoArrayObject={listItem} />);
+      let listItem = this.props.videos[i];
+      this['video' + i] = (<VideoListEntry videos={listItem} />);
     }
    
 
@@ -28,11 +26,6 @@ class VideoList extends React.Component {
   }
   
 }
-  
-
-
-
-
 
 //create the render method
   //iterate the first 5 results from exampleVideoData
@@ -44,9 +37,9 @@ class VideoList extends React.Component {
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
-// VideoList.propTypes = {
-//   videos: React.PropTypes.array.isRequired
-// };
+VideoList.propTypes = {
+  videos: React.PropTypes.array.isRequired
+};
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope.
 // `var` declarations will only exist globally where explicitly defined.

@@ -7,10 +7,10 @@ class VideoPlayer extends React.Component {
   render (props) {
     //var videoPlayer = this.props.videoPlayer;
     //var iframe = this.props.iframe;
-    var thumbnail = this.props.videoObject.snippet.thumbnails.default.url;
-    var videoId = 'https://www.youtube.com/embed/' + this.props.videoObject.id.videoId;
-    var description = this.props.videoObject.snippet.description;
-    var title = this.props.videoObject.snippet.title;
+    var thumbnail = this.props.video.snippet.thumbnails.default.url;
+    var videoId = 'https://www.youtube.com/embed/' + this.props.video.id.videoId;
+    var description = this.props.video.snippet.description;
+    var title = this.props.video.snippet.title;
 
     return (
       <div className="video-player">

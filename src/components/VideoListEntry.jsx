@@ -8,12 +8,9 @@ class VideoListEntry extends React.Component {
   render (props) {
     //var videoPlayer = this.props.videoPlayer;
     //var iframe = this.props.iframe;
-    console.log('this: ', this);
-    console.log('this.props: ', this.props);
-    console.log('this.props.videoArrayObject: ', this.props.videoArrayObject);
-    var thumbnail = this.props.videoArrayObject.snippet.thumbnails.default.url;
-    var description = this.props.videoArrayObject.snippet.description;
-    var title = this.props.videoArrayObject.snippet.title;
+    var thumbnail = this.props.videos.snippet.thumbnails.default.url;
+    var description = this.props.videos.snippet.description;
+    var title = this.props.videos.snippet.title;
 
     var videoListElement = (
       <div className="video-list-entry media">
