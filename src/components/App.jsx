@@ -1,13 +1,17 @@
 class App extends React.Component {
   
-  
-  
+  //
+  onChildChanged (newState) { //also consider input
+    this.setState({ checked: newState }); // adjust this to our case
+  }
+  //
+
   constructor () {
     //console.log('VideoListEntry.props = ', props);
     super();
 
     this.state = {
-      'currentVideo': window.exampleVideoData[0]
+      'currentVideo': window.exampleVideoData[1]
     };
   }
 
@@ -16,7 +20,7 @@ class App extends React.Component {
   }
   
   render () {
-
+    
     var appDiv = (
       <div>
         <nav className="navbar">
@@ -27,10 +31,15 @@ class App extends React.Component {
 
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayer video={window.exampleVideoData[0]} />
+            <VideoPlayer video={this.state.currentVideo} />
           </div>
           <div className="col-md-5">
-            <VideoList entryClicked={this.entryClicked.bind(this)} videos={window.exampleVideoData} />
+            <VideoList 
+              entryClicked={this.entryClicked.bind(this)}
+              //
+              callbackParent={this.onChildChanged}
+              //
+              videos={window.exampleVideoData} />
           </div>
         </div>
 

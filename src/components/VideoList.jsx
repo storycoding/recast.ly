@@ -2,10 +2,8 @@ var VideoList = (props) => {
 
   for (let i = 0; i < props.videos.length; i++) {
     let listItem = props.videos[i];
-    window['video' + i] = (<VideoListEntry entryClicked={props.entryClicked} videos={listItem} />);
+    window['video' + i] = (<VideoListEntry entryClicked={props.entryClicked} video={listItem} />);
   }
- 
-  
 
   var list = (
     <div className="video-list">
