@@ -2,6 +2,7 @@ var App = () => (
   <div>
     <nav className="navbar">
       <div className="col-md-6 offset-md-3">
+        <Search keywords />
       </div>
     </nav>
     <div className="row">

@@ -8,13 +8,14 @@ class VideoPlayer extends React.Component {
     //var videoPlayer = this.props.videoPlayer;
     //var iframe = this.props.iframe;
     var thumbnail = this.props.videoObject.snippet.thumbnails.default.url;
-    var videoId = this.props.videoObject.id.videoId;
+    var videoId = 'https://www.youtube.com/embed/' + this.props.videoObject.id.videoId;
     var description = this.props.videoObject.snippet.description;
     var title = this.props.videoObject.snippet.title;
+
     return (
       <div className="video-player">
         <div className="embed-responsive embed-responsive-16by9">
-          <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/{videoId}?autoplay=1" allowFullScreen></iframe>
+          <iframe className="embed-responsive-item" src={videoId} allowFullScreen></iframe>
         </div>
         <div className="video-player-details">
           <h3>{title}</h3>
