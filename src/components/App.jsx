@@ -7,7 +7,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      "currentVideo" : window.exampleVideoData[0]
+      'currentVideo': window.exampleVideoData[0]
     };
   }
 
