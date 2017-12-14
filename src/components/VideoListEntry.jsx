@@ -13,7 +13,7 @@ class VideoListEntry extends React.Component {
     var title = this.props.videos.snippet.title;
 
     var videoListElement = (
-      <div className="video-list-entry media">
+      <div onClick={this.entryClicked} className="video-list-entry media">
         <div className="media-left media-middle">
           <img className="media-object" src={thumbnail} alt="" />
         </div>
@@ -29,8 +29,8 @@ class VideoListEntry extends React.Component {
 
 }
 
-
-
+//line 16 this.entryClicked is passed down from the App level through videoList
+// the click function must listen from the bottom level and send info to the top
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

@@ -1,37 +1,33 @@
-class VideoList extends React.Component {
+var VideoList = (props) => {
 
-  constructor (props) {
-    super(props);
+  for (let i = 0; i < props.videos.length; i++) {
+    let listItem = props.videos[i];
+    window['video' + i] = (<VideoListEntry entryClicked={props.entryClicked} videos={listItem} />);
   }
-
-  render (props) {
-
-    for (var i = 1; i <= 3; i++) {
-      let listItem = this.props.videos[i];
-      this['video' + i] = (<VideoListEntry videos={listItem} />);
-    }
-   
-
-    var list = (
-      <div className="video-list">
-        <div>{this.video1}</div>
-        <div>{this.video2}</div>
-        <div>{this.video3}</div>
-        <div>{this.video4}</div>
-        <div>{this.video5}</div>
-      </div>
-    );    
-
-    return list;   
-  }
+ 
   
-}
+
+  var list = (
+    <div className="video-list">
+      <div>{video0}</div>
+      <div>{video1}</div>
+      <div>{video2}</div>
+      <div>{video3}</div>
+      <div>{video4}</div>
+    </div>
+  );    
+
+  return list;   
+};
 
 //create the render method
   //iterate the first 5 results from exampleVideoData
     // render those elements into videoListEntry react instances 
       //append the results to videoList
   // return the videoList
+
+
+//line 5 VideoListEntry entryClicked function is passed down from App to the VideoListEntry
 
 
 
