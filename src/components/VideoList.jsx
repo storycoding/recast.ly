@@ -8,7 +8,7 @@ class VideoList extends React.Component {
     
     console.log('this = ' + this);
 
-    for (var i = 1; i <= 5; i++) {
+    for (var i = 1; i <= 3; i++) {
       let listItem = this.props.videoArray[i];
       this['video' + i] = (<VideoListEntry videoArrayObject={listItem} />);
     }
