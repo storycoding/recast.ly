@@ -1,11 +1,5 @@
 class App extends React.Component {
   
-  //
-  onChildChanged (newState) { //also consider input
-    this.setState({ checked: newState }); // adjust this to our case
-  }
-  //
-
   constructor () {
     //console.log('VideoListEntry.props = ', props);
     super();
@@ -14,9 +8,17 @@ class App extends React.Component {
       'currentVideo': window.exampleVideoData[1]
     };
   }
+  //
+  onChildChanged () { //also consider input
+    //this.setState({ checked: newState }); // adjust this to our case
+    entryClicked(props.video);
+  }
+  //
 
-  entryClicked (index) {
-    this.setState({currentVideo: window.exampleVideoData[index]});  
+
+  entryClicked (videoObject) {
+    console.dir(this);
+    this.setState({currentVideo: videoObject});
   }
   
   render () {
@@ -34,11 +36,9 @@ class App extends React.Component {
             <VideoPlayer video={this.state.currentVideo} />
           </div>
           <div className="col-md-5">
-            <VideoList 
+            <VideoList
+              onChildChanged={this.onChildChanged}
               entryClicked={this.entryClicked.bind(this)}
-              //
-              callbackParent={this.onChildChanged}
-              //
               videos={window.exampleVideoData} />
           </div>
         </div>
