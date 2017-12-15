@@ -1,18 +1,57 @@
 class App extends React.Component {
   
   constructor () {
-    //console.log('VideoListEntry.props = ', props);
     super();
 
     this.state = {
-      'currentVideo': window.exampleVideoData[1]
+      'currentVideo': window.exampleVideoData[1],
+      'currentDataSet': window.exampleVideoData,
+      'currentKeywords': 'cats and cucumbers'
     };
   }
-
+  
+  newSearchRequest (userInputData) {
+    this.state.currentKeywords = userInputData; // this.setState({currentKeywords: userInputData});
+    console.log('new search triggered');
+    this.refreshVideoList();
+  }
 
   entryClicked (videoObject) {
     this.setState({currentVideo: videoObject});
   }
+
+  refreshVideoList () {
+    
+    console.log('refreshVideoList called');
+    
+    var context = this;
+
+    var data = $.ajax({
+  
+      url: 'https://www.googleapis.com/youtube/v3/search',
+      type: 'GET',
+
+      data: {'maxResults': '5',
+        'part': 'snippet',
+        'q': context.state.currentDataSet,
+        'type': 'video',
+        'key': YOUTUBE_API_KEY,
+        'videoEmbeddable': true
+      },
+
+      error: function() { console.log('goddamn!'); },
+
+    }).done(function(data) {
+      console.log('data is ready');
+      console.dir(data);
+      return data;
+    });
+
+    console.log('this = ');
+    console.dir(this);
+    this.setState({currentDataSet: data});
+  }
+   
   
   render () {
     
@@ -20,7 +59,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search keywords />
+            <Search newSearchRequest={this.newSearchRequest.bind(this)} />
           </div>
         </nav>
 
