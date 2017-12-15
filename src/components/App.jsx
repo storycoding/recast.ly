@@ -8,16 +8,9 @@ class App extends React.Component {
       'currentVideo': window.exampleVideoData[1]
     };
   }
-  //
-  onChildChanged () { //also consider input
-    //this.setState({ checked: newState }); // adjust this to our case
-    entryClicked(props.video);
-  }
-  //
 
 
   entryClicked (videoObject) {
-    console.dir(this);
     this.setState({currentVideo: videoObject});
   }
   
@@ -37,7 +30,6 @@ class App extends React.Component {
           </div>
           <div className="col-md-5">
             <VideoList
-              onChildChanged={this.onChildChanged}
               entryClicked={this.entryClicked.bind(this)}
               videos={window.exampleVideoData} />
           </div>

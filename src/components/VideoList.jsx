@@ -3,7 +3,6 @@ var VideoList = (props) => {
   for (let i = 0; i < props.videos.length; i++) {
     let listItem = props.videos[i];
     window['video' + i] = (<VideoListEntry
-      onChildChanged={props.onChildChanged}
       entryClicked={props.entryClicked}
       video={listItem} />);
   }
